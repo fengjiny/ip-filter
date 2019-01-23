@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juice.ipfilter.dao.IpRouterInfoDao">
+    <resultMap id="BaseResultMap" type="com.juice.ipfilter.model.IpRouterInfo" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="hash" property="hash" jdbcType="VARCHAR" />
+        <result column="ip" property="ip" jdbcType="VARCHAR" />
+        <result column="is_floodfill" property="isFloodFill" jdbcType="INTEGER" />
+        <result column="known_leasesets" property="knownLeaseSets" jdbcType="INTEGER" />
+        <result column="known_routers" property="knownRouters" jdbcType="INTEGER" />
+        <result column="router_version" property="routerVersion" jdbcType="VARCHAR" />
+        <result column="caps" property="caps" jdbcType="VARCHAR" />
+        <result column="country" property="country" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="port" property="port" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+    id, hash, ip, is_floodfill, known_leasesets,
+    known_routers, router_version, caps, country, create_time,
+    port
+  </sql>
+
+    <select id="getAllIpInfo" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from
+          i2p_routerinfo
+        where 1 = 1;
+    </select>
+</mapper>

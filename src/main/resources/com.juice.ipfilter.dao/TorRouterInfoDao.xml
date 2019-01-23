@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juice.ipfilter.dao.TorRouterInfoDao">
+    <resultMap id="BaseResultMap" type="com.juice.ipfilter.model.TorRouterInfo" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+        <result column="fingerprint" property="fingerPrint" jdbcType="VARCHAR" />
+        <result column="first_seen" property="firstSeen" jdbcType="TIMESTAMP" />
+        <result column="country" property="country" jdbcType="VARCHAR" />
+        <result column="last_restarted" property="lastRestarted" jdbcType="TIMESTAMP" />
+        <result column="ip" property="ip" jdbcType="VARCHAR" />
+        <result column="port" property="port" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+      id, nickname, fingerprint, first_seen, country, last_restarted, ip, port
+    </sql>
+
+    <select id="getAllTorInfo" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from
+          tor_routerinfo
+        where 1 = 1;
+    </select>
+
+
+    <!--<select id="getUserIdsAll" resultType="java.lang.String" parameterType="java.lang.Long">-->
+        <!--select `userid` from `mbk_user_contract_status`-->
+            <!--where `contract_type` = 0 and `contract_status` = 0-->
+                <!--limit #{offset}, 100000;-->
+    <!--</select>-->
+
+    <!--<select id="getUserIdsIncrement" resultType="java.lang.String" parameterType="java.lang.Long">-->
+        <!--select `userid` from `mbk_user_contract_status`-->
+            <!--where `contract_type` = 0 and `contract_status` = 0-->
+                <!--and `update_time` &gt; date_add(current_time(), interval -1 day)-->
+                <!--limit #{offset}, 100000;-->
+    <!--</select>-->
+
+    <!--<select id="getUserIdAndType" resultType="java.lang.Integer" parameterType="java.util.HashMap">-->
+        <!--select count(1) from `mbk_user_contract_status`-->
+            <!--where `userid` = #{userId} and `contract_type` = #{contractType};-->
+    <!--</select>-->
+</mapper>
