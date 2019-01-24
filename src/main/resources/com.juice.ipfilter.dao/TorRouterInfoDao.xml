@@ -23,23 +23,4 @@
           tor_routerinfo
         where 1 = 1;
     </select>
-
-
-    <!--<select id="getUserIdsAll" resultType="java.lang.String" parameterType="java.lang.Long">-->
-        <!--select `userid` from `mbk_user_contract_status`-->
-            <!--where `contract_type` = 0 and `contract_status` = 0-->
-                <!--limit #{offset}, 100000;-->
-    <!--</select>-->
-
-    <!--<select id="getUserIdsIncrement" resultType="java.lang.String" parameterType="java.lang.Long">-->
-        <!--select `userid` from `mbk_user_contract_status`-->
-            <!--where `contract_type` = 0 and `contract_status` = 0-->
-                <!--and `update_time` &gt; date_add(current_time(), interval -1 day)-->
-                <!--limit #{offset}, 100000;-->
-    <!--</select>-->
-
-    <!--<select id="getUserIdAndType" resultType="java.lang.Integer" parameterType="java.util.HashMap">-->
-        <!--select count(1) from `mbk_user_contract_status`-->
-            <!--where `userid` = #{userId} and `contract_type` = #{contractType};-->
-    <!--</select>-->
 </mapper>
